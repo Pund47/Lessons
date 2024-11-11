@@ -1,14 +1,17 @@
+from pprint import pprint
 import runner_and_tournament
 import unittest
 
 class TournamentTest(unittest.TestCase):
     @classmethod
-    def tearDown(cls):
-        print(all_results)
+    def tearDown(self):
+        #pprint(all_results)
+        pass
 
-    def setUpClass (self):
+    @classmethod
+    def setUpClass (cls):
         all_results = []
-        all_results[self.name]= self.distance
+
 
     def setUp(self):
         runer = runner_and_tournament.Runner("Усэйн")
@@ -17,9 +20,11 @@ class TournamentTest(unittest.TestCase):
         runer1.speed = 9
         runer2 = runner_and_tournament.Runner("Ник")
         runer2.speed = 3
-    def test_Tournament(self):
-        zabeg1 = runner_and_tournament.Tournament(90,[runer,runer2])
-        zabeg2 = runner_and_tournament.Tournament(90, [runer1, runer2])
-        zabeg3 = runner_and_tournament.Tournament(90, [runer,runer1, runer2])
 
-        pass
+    def test_Tournament(self, runer,runer1,runer2):
+        zabeg1 = runner_and_tournament.Tournament(90,[runer,runer2])
+        all_results =  zabeg1.start()
+        zabeg2 = runner_and_tournament.Tournament(90, [runer1, runer2])
+        all_results = zabeg2.start()
+        zabeg3 = runner_and_tournament.Tournament(90, [runer,runer1, runer2])
+        all_results = zabeg3.start()
