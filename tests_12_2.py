@@ -5,12 +5,12 @@ import unittest
 class TournamentTest(unittest.TestCase):
     @classmethod
     def tearDown(self):
-        #pprint(all_results)
+        pprint(self.all_results)
         pass
 
     @classmethod
     def setUpClass (cls):
-        all_results = []
+        cls.all_results = {}
 
 
     def setUp(self):
@@ -23,8 +23,8 @@ class TournamentTest(unittest.TestCase):
 
     def test_Tournament(self, runer,runer1,runer2):
         zabeg1 = runner_and_tournament.Tournament(90,[runer,runer2])
-        all_results =  zabeg1.start()
+        self.all_results =  zabeg1.start()
         zabeg2 = runner_and_tournament.Tournament(90, [runer1, runer2])
-        all_results = zabeg2.start()
+        self.all_results = zabeg2.start()
         zabeg3 = runner_and_tournament.Tournament(90, [runer,runer1, runer2])
-        all_results = zabeg3.start()
+        self.all_results = zabeg3.start()
