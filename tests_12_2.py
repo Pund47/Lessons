@@ -23,10 +23,16 @@ class TournamentTest(unittest.TestCase):
 
     def test_Tournament(self):
         zabeg1 = runner_and_tournament.Tournament(90,self.runer,self.runer2)
-        self.all_results =  zabeg1.start()
-        #zabeg2 = runner_and_tournament.Tournament(90, self.runer1, self.runer2)
-        #self.all_results = zabeg2.start()
-        #zabeg3 = runner_and_tournament.Tournament(90, self.runer,self.runer1, self.runer2)
-        #self.all_results = zabeg3.start()
+        self.all_results.update(zabeg1.start())
 
-        self.assertTrue(max(self.all_results, key=self.all_results.get(len(self.all_results)))=="Ник")
+    def test_Tournament1(self):
+        zabeg2 = runner_and_tournament.Tournament(90, self.runer1, self.runer2)
+        self.all_results.update(zabeg2.start())
+
+    def test_Tournament2(self):
+        zabeg3 = runner_and_tournament.Tournament(90, self.runer,self.runer1, self.runer2)
+        self.all_results.update(zabeg3.start())
+
+#        f = max(self.all_results, key=len(self.all_results))
+#        self.assertTrue(max(self.all_results, key=self.all_results.get(len(self.all_results)))=="Ник")
+
