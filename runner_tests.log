@@ -1,0 +1,40 @@
+2024-11-14 09:01:11,079 | INFO | test_run выполнен успешно
+NoneType: None
+2024-11-14 09:01:11,079 | ERROR | Неверная скорость для Runner
+Traceback (most recent call last):
+  File "D:\PycharmProjects\pygame_example\rt_with_exceptions.py", line 24, in __init__
+    raise ValueError(f'Скорость не может быть отрицательной, сейчас {speed}')
+ValueError: Скорость не может быть отрицательной, сейчас -10
+2024-11-14 09:01:11,080 | ERROR | Неверный тип данных для объекта Runner
+Traceback (most recent call last):
+  File "D:\PycharmProjects\pygame_example\rt_with_exceptions.py", line 11, in __init__
+    raise TypeError(f'Имя может быть только строкой, передано {type(name).__name__}')
+TypeError: Имя может быть только строкой, передано int
+2024-11-14 09:01:11,080 | INFO | test_walk выполнен успешно
+NoneType: None
+2024-11-14 09:01:11,080 | INFO | test_run выполнен успешно
+NoneType: None
+2024-11-14 09:01:11,080 | INFO | test_walk выполнен успешно
+NoneType: None
+2024-11-14 09:01:11,081 | INFO | test_run выполнен успешно
+NoneType: None
+2024-11-14 09:01:11,081 | ERROR | Неверная скорость для Runner
+Traceback (most recent call last):
+  File "D:\PycharmProjects\pygame_example\rt_with_exceptions.py", line 24, in __init__
+    raise ValueError(f'Скорость не может быть отрицательной, сейчас {speed}')
+ValueError: Скорость не может быть отрицательной, сейчас -10
+2024-11-14 09:01:11,081 | ERROR | Неверный тип данных для объекта Runner
+Traceback (most recent call last):
+  File "D:\PycharmProjects\pygame_example\rt_with_exceptions.py", line 11, in __init__
+    raise TypeError(f'Имя может быть только строкой, передано {type(name).__name__}')
+TypeError: Имя может быть только строкой, передано int
+2024-11-14 09:01:11,081 | INFO | test_walk выполнен успешно
+NoneType: None
+2024-11-14 09:01:11,081 | INFO | test_run выполнен успешно
+NoneType: None
+2024-11-14 09:01:11,081 | INFO | test_walk выполнен успешно
+NoneType: None
+2024-11-14 09:01:11,081 | INFO | test_run выполнен успешно
+NoneType: None
+2024-11-14 09:01:11,081 | INFO | test_walk выполнен успешно
+NoneType: None
