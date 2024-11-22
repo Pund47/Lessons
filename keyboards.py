@@ -11,8 +11,9 @@ kb2 = InlineKeyboardMarkup()
 but1 = InlineKeyboardButton(text='Рассчитать норму калорий', callback_data='calories')
 but2 = InlineKeyboardButton(text='Формулы расчёта', callback_data='formulas')
 but3 = InlineKeyboardButton(text='Купить', callback_data='buy_this_shit')
+but4 = InlineKeyboardButton(text="Регистрация", callback_data='registration')
 
-kb2.add(but1, but2, but3)
+kb2.add(but1, but2, but3, but4)
 
 kb3 = InlineKeyboardMarkup()
 b_but1 = InlineKeyboardButton(text='Продукт 1', callback_data='product_buying')
