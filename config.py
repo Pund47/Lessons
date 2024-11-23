@@ -1,4 +1,4 @@
-API = "7451720096:AAGbEXhGq4mAIpn57YZzFemmGUJdhZb9Fuw"
+API = "
 
 opisanie1 = "Зелёный дракон"
 opisanie2 = "Дракон с платочком"
