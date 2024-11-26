@@ -30,12 +30,15 @@ def initiate_db():
 
 
 def add_user(username, email, age):
-    connection = sqlite3.connect("my_db.db")
-    cursor = connection.cursor()
-    cursor.execute(f'''
-    INSERT INTO Users (username,email,age,balance) VALUES('{username}','{email}','{age}',1000) 
-    ''')
-    connection.commit()
+    if not is_included(username):
+        connection = sqlite3.connect("my_db.db")
+        cursor = connection.cursor()
+        cursor.execute(f'''
+        INSERT INTO Users (username,email,age,balance) VALUES('{username}','{email}','{age}',1000) 
+        ''')
+        connection.commit()
+    else:
+        pass
 
 
 #for i in range(1, 5):
