@@ -1,29 +1,28 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, Path
 from pydantic import BaseModel
-
+from typing import Annotated
+#uvicorn module_16_1:app --reload
 class Item(BaseModel):
     name: str
     price: float
 
-
+users = {'1': 'Имя: Example, возраст: 18'}
 app = FastAPI()
 
 @app.get("/")
-async def root1()-> dict:
+async def Get_Main_Page()-> dict:
     return {"message": "Главная страница"}
 
-@app.get("/user/{username}/{age}")
-async def get_user(username : str, age: int) -> dict:
-    return {"message":f"Информация о пользователе. Имя: {username}, Возраст: {age}"}
-
-
-@app.get("/user/{user_id}")
-async def get_user(user_id: int) :
-    return {f"Вы вошли как пользователь № {user_id}"}
-
 @app.get("/user/admin")
-async def root11()-> dict:
+async def get_admin_page()-> dict:
     return {"message": "Вы вошли как администратор"}
 
+@app.get("/user/{user_id}")
+async def get_user_number(user_id: int) :
+    return {f"Вы вошли как пользователь № {user_id}"}
+
+@app.get("/user")
+async def get_user_info(username,age) -> dict:
+    return {"message":f"Информация о пользователе. Имя: {username}, Возраст: {age}"}
 
 
