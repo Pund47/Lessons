@@ -22,7 +22,7 @@ async def get_user_number(user_id: int) :
     return {f"Вы вошли как пользователь № {user_id}"}
 
 @app.get("/user")
-async def get_user_info(username,age) -> dict:
+async def get_user_info(username: str ="username",age: int=20) -> dict:
     return {"message":f"Информация о пользователе. Имя: {username}, Возраст: {age}"}
 
 
