@@ -47,8 +47,13 @@ async def update_user(user:User,user_id:int,username:str,age:int)-> str:
 @app.delete('/user/{user_id}')
 async def del_user(user:User,user_id:int)-> str:
     try:
-        user = users[user_id]
-        users.pop(user_id)
-        return (f"Пользователь {user} был удалён!")
+        for i in range(0,len(users)):
+            if users[i].id ==user_id:
+                user_for_del = users[i]
+                index_for_dell = i
+
+        #user = user_for_del
+        users.pop(index_for_dell)
+        return (f"Пользователь {user_for_del} был удалён!")
     except IndexError:
         raise HTTPException(status_code=404, detail="User was not found")
