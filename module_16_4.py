@@ -21,35 +21,34 @@ async def add_new_user(user:User, username:str,age:int) -> str:
    if len(users)== 0:
        current_index = 1
    else:
-       max_id = 0
+       max_id = 1
        for i in range(1,len(users)):
            if int(users[i].id) > max_id:
                max_id = int(users[i].id)
        current_index = int(max_id + 1)
-   User.id = current_index
-   User.username = username
-   User.age = age
-   #users[current_index] = (username, age)
-   users.append(User)
-   return (f"User {User} is registered")
+   user.id = current_index
+   user.username = username
+   user.age = age
+   users.append(user)
+   return (f"User {user} is registered")
 
 #put запрос по маршруту '/user/{user_id}/{username}/{age}'
 @app.put('/user/{user_id}/{username}/{age}')
 async def update_user(user:User,user_id:int,username:str,age:int)-> str:
     try:
-        edit_user = users[user_id]
-        edit_user.username = username
-        edit_user.age = age
-        return (f"User updated!")
+        user = users[user_id]
+        user.username = username
+        user.age = age
+        return (f"User {user} updated!")
     except IndexError:
         raise HTTPException(status_code=404, detail="User was not found")
 
 
 @app.delete('/user/{user_id}')
-async def del_user(user_id:int)-> str:
+async def del_user(user:User,user_id:int)-> str:
     try:
-        userForDel = users[user_id]
+        user = users[user_id]
         users.pop(user_id)
-        return (f"Пользователь {userForDel} был удалён!")
+        return (f"Пользователь {user} был удалён!")
     except IndexError:
         raise HTTPException(status_code=404, detail="User was not found")
