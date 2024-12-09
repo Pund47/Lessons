@@ -21,20 +21,13 @@ class User(BaseModel):
 async def root(request: Request)-> HTMLResponse:
     return templates.TemplateResponse("users.html",{"request":request,"users":users})
 
-@app.get(path="/users/{user_id}")
-async def root(request: Request,user_id:int) -> HTMLResponse:
-#    return templates.TemplateResponse("users.html", {"request": request, "user": users[user_id]})
-    try:
-        for i in range(0,len(users)):
-            if users[i].id ==user_id:
-                user = users[i]
-                index_for_send = i
 
-        return templates.TemplateResponse("users.html",{"request":request,"user":user})
-    except IndexError:
-        raise HTTPException(status_code=404,detail="Not found")
-
-
+@app.get('/user/{user_id}')
+async def get_user(request: Request, user_id: int) -> HTMLResponse:
+       user = next((user for user in users if user.id == user_id), None)
+       if user is None:
+           raise HTTPException(status_code=404, detail="User not found")
+       return templates.TemplateResponse("users.html", {"request": request, "user": user, "users": users})
 
 
 
