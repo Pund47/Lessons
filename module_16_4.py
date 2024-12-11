@@ -36,7 +36,11 @@ async def add_new_user(user:User, username:str,age:int) -> str:
 @app.put('/user/{user_id}/{username}/{age}')
 async def update_user(user:User,user_id:int,username:str,age:int)-> str:
     try:
-        user = users[user_id]
+        for i in range(0, len(users)):
+            if int(users[i].id) == user_id:
+                id_in_list = i
+
+        user = users[id_in_list]
         user.username = username
         user.age = age
         return (f"User {user} updated!")
